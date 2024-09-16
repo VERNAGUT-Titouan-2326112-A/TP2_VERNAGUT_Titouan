@@ -93,13 +93,39 @@ public class SLinkedList {
             return current; 
         }
     
+    	 public void reverse() {
+    	        Node previous = null; 
+    	        Node current = head; 
+    	        Node next = null; 
+
+    	        while (current != null) {
+    	            next = current.getNext(); 
+    	            current.setNext(previous);
+    	            current = next; 
+    	        }
+
+    	        head = previous;
+    	 }
+    	 public void printList2() {
+    	        Node current = head;
+    	        while (current != null) {
+    	            System.out.print(current.getElement() + " , ");
+    	            current = current.getNext();
+    	        }
+    	      
+    	    }
     public static void main(String[] args) {
     	SLinkedList list=new SLinkedList();
+    	//Q1
     	list.add(10);
     	list.add(7);
+    	//Q2
     	list.addBegin(5);
+    	//Q3
     	list.toString(list); 
-    	
     	System.out.println(list.findSecondLastNode());
+    	//Q4 ne marche pas 
+    	list.reverse();
+    	list.printList2();    	
     }
 }
